@@ -10,8 +10,8 @@
   "scripts": {
     "cy:open": "cypress open",
     "test:e2e": "cypress run --browser chrome",
-    "test:testcafe": "testcafe chrome:headless testcafe/tests",
-    "test:testcafe:headed": "testcafe chrome testcafe/tests",
+    "test:testcafe": "testcafe \"chrome:headless --no-sandbox --disable-dev-shm-usage\"",
+    "test:testcafe:headed": "testcafe chrome",
     "test:api": "newman run api/restful-booker.postman_collection.json -e api/restful-booker.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export reports/api/index.html",
     "test:mobile": "maestro test mobile/flows",
     "test": "npm run test:api && npm run test:testcafe && npm run test:e2e"
