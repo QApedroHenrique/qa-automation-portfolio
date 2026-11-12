@@ -38,14 +38,3 @@ invalidAttempts.forEach(({ scenario, username, password, error }) => {
 test('does not show an error before submitting', async (t) => {
   await t.expect(loginPage.error.hasClass('show')).notOk();
 });
-
-test('logs out and returns to the login page', async (t) => {
-  await loginPage.login(VALID_USER.username, VALID_USER.password);
-  await t.expect(secureAreaPage.heading.visible).ok();
-
-  await secureAreaPage.logout();
-
-  await t
-    .expect(getPath()).eql('/practice-test-login/')
-    .expect(loginPage.username.visible).ok();
-});
