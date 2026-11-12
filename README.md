@@ -9,7 +9,7 @@ Everything here runs against **public demo applications made for practising auto
 | Layer | Tool | Application under test | Highlights |
 | --- | --- | --- | --- |
 | Web UI | **Cypress** | [Sauce Demo](https://www.saucedemo.com), [Automation Exercise](https://automationexercise.com) | Page Objects, data-driven cases, `cy.session`, API seeding for UI tests |
-| Web UI | **TestCafe** | [The Internet](https://the-internet.herokuapp.com) | Page Model, async content without fixed waits |
+| Web UI | **TestCafe** | [Practice Test Automation](https://practicetestautomation.com/practice-test-login/), [The Internet](https://the-internet.herokuapp.com) | Page Model, async content without fixed waits |
 | API | **Postman + Newman** | [Restful Booker](https://restful-booker.herokuapp.com) | Chained flow, JSON Schema validation, auth token reuse, negative cases |
 | Mobile | **Maestro** | [Wikipedia Android app](https://github.com/wikimedia/apps-android-wikipedia) | Reusable conditional subflows |
 | CI | **GitHub Actions** | — | Three parallel jobs with HTML reports as artifacts |
@@ -47,7 +47,7 @@ Everything here runs against **public demo applications made for practising auto
 
 ### TestCafe: login and dynamic pages
 
-- Valid and invalid login, flash messages and logout.
+- Valid login, unknown user, wrong password, error state before submitting, and logout.
 - Elements that appear, disappear or become enabled after async requests, handled with retrying assertions instead of fixed sleeps.
 
 ### Postman / Newman: booking API regression

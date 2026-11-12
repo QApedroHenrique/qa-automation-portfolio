@@ -25,9 +25,6 @@ module.exports = defineConfig({
     '*.adtrafficquality.google',
     'fundingchoicesmessages.google.com',
   ],
-  env: {
-    automationExerciseUrl: 'https://automationexercise.com',
-  },
   e2e: {
     baseUrl: 'https://www.saucedemo.com',
     specPattern: 'cypress/e2e/**/*.cy.js',
