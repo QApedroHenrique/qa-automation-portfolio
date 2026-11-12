@@ -1,0 +1,5 @@
+{
+  "customer": { "firstName": "Ana", "lastName": "Tester", "postalCode": "58400-000" },
+  "products": ["sauce-labs-backpack", "sauce-labs-bike-light"],
+  "taxRate": 0.08
+}

@@ -1,0 +1,5 @@
+{
+  "_comment": "Public demo accounts published on https://www.saucedemo.com — not real credentials.",
+  "standard": { "username": "standard_user", "password": "secret_sauce" },
+  "lockedOut": { "username": "locked_out_user", "password": "secret_sauce" }
+}
