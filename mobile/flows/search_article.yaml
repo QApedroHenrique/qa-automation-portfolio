@@ -1,0 +1,20 @@
+appId: org.wikipedia
+name: Search for an article and open it
+tags:
+  - smoke
+---
+- launchApp:
+    clearState: true
+- runFlow: ../subflows/skip_onboarding.yaml
+
+- tapOn: "Search Wikipedia"
+- inputText: "Software testing"
+- assertVisible:
+    id: "org.wikipedia:id/page_list_item_title"
+    text: "Software testing"
+
+- tapOn:
+    id: "org.wikipedia:id/page_list_item_title"
+    text: "Software testing"
+- assertVisible: "Software testing"
+- takeScreenshot: article-opened
