@@ -1,10 +1,11 @@
 import signupPage from '../../pages/SignupPage';
 import { buildUser } from '../../support/factories';
+import { AUTOMATION_EXERCISE_URL } from '../../support/urls';
 
 // The demo site ships third-party scripts that throw errors unrelated to the flows under test.
 Cypress.on('uncaught:exception', () => false);
 
-const apiUrl = (path) => `${Cypress.env('automationExerciseUrl')}/api/${path}`;
+const apiUrl = (path) => `${AUTOMATION_EXERCISE_URL}/api/${path}`;
 
 /** The demo API answers JSON with a text/html content type, so parse it defensively. */
 const parse = (body) => (typeof body === 'string' ? JSON.parse(body) : body);
