@@ -47,7 +47,7 @@ Everything here runs against **public demo applications made for practising auto
 
 ### TestCafe: login and dynamic pages
 
-- Valid login, unknown user, wrong password, error state before submitting, and logout.
+- Valid login, unknown user, wrong password and the error state before submitting.
 - Elements that appear, disappear or become enabled after async requests, handled with retrying assertions instead of fixed sleeps.
 
 ### Postman / Newman: booking API regression
