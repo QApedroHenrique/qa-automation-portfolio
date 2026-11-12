@@ -1,9 +1,7 @@
+import { AUTOMATION_EXERCISE_URL } from '../support/urls';
+
 /** Page object for the Automation Exercise sign-up / login flow. */
 class SignupPage {
-  get baseUrl() {
-    return Cypress.env('automationExerciseUrl');
-  }
-
   elements = {
     signupName: () => cy.get('[data-qa="signup-name"]'),
     signupEmail: () => cy.get('[data-qa="signup-email"]'),
@@ -19,7 +17,7 @@ class SignupPage {
   };
 
   visit() {
-    cy.visit(`${this.baseUrl}/login`);
+    cy.visit(`${AUTOMATION_EXERCISE_URL}/login`);
   }
 
   startSignup(name, email) {

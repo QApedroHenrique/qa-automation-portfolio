@@ -12,7 +12,8 @@ class InventoryPage {
   };
 
   visit() {
-    cy.visit('/inventory.html');
+    // Sauce Demo is a static SPA: deep links answer 404 and the app routes on the client.
+    cy.visit('/inventory.html', { failOnStatusCode: false });
   }
 
   /** @param {'az'|'za'|'lohi'|'hilo'} option */
