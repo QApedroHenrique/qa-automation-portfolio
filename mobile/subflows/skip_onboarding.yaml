@@ -1,0 +1,8 @@
+appId: org.wikipedia
+---
+# The onboarding carousel only shows on a fresh install, so skip it when present.
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
