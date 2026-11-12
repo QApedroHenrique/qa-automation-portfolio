@@ -3,19 +3,20 @@ import loginPage from '../pages/LoginPage';
 import secureAreaPage from '../pages/SecureAreaPage';
 
 // Public demo credentials shown on the login page itself.
-const VALID_USER = { username: 'tomsmith', password: 'SuperSecretPassword!' };
+const VALID_USER = { username: 'student', password: 'Password123' };
 
 const getPath = ClientFunction(() => window.location.pathname);
 
-fixture('Login · The Internet').page(loginPage.url);
+fixture('Login · Practice Test Automation').page(loginPage.url);
 
 test('logs in with valid credentials', async (t) => {
   await loginPage.login(VALID_USER.username, VALID_USER.password);
 
   await t
-    .expect(getPath()).eql('/secure')
+    .expect(getPath()).eql('/logged-in-successfully/')
     .expect(secureAreaPage.heading.visible).ok()
-    .expect(loginPage.flash.innerText).contains('You logged into a secure area!');
+    .expect(secureAreaPage.welcomeMessage.innerText).contains(`Congratulations ${VALID_USER.username}`)
+    .expect(secureAreaPage.logoutButton.visible).ok();
 });
 
 const invalidAttempts = [
@@ -28,17 +29,23 @@ invalidAttempts.forEach(({ scenario, username, password, error }) => {
     await loginPage.login(username, password);
 
     await t
-      .expect(getPath()).eql('/login')
-      .expect(loginPage.flash.hasClass('error')).ok()
-      .expect(loginPage.flash.innerText).contains(error);
+      .expect(loginPage.error.hasClass('show')).ok()
+      .expect(loginPage.error.innerText).eql(error)
+      .expect(getPath()).eql('/practice-test-login/');
   });
+});
+
+test('does not show an error before submitting', async (t) => {
+  await t.expect(loginPage.error.hasClass('show')).notOk();
 });
 
 test('logs out and returns to the login page', async (t) => {
   await loginPage.login(VALID_USER.username, VALID_USER.password);
+  await t.expect(secureAreaPage.heading.visible).ok();
+
   await secureAreaPage.logout();
 
   await t
-    .expect(getPath()).eql('/login')
-    .expect(loginPage.flash.innerText).contains('You logged out of the secure area!');
+    .expect(getPath()).eql('/practice-test-login/')
+    .expect(loginPage.username.visible).ok();
 });
