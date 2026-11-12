@@ -1,0 +1,14 @@
+{
+  "src": ["testcafe/tests"],
+  "screenshots": {
+    "path": "reports/testcafe/screenshots",
+    "takeOnFails": true
+  },
+  "reporter": [
+    { "name": "spec" },
+    { "name": "xunit", "output": "reports/testcafe/report.xml" }
+  ],
+  "selectorTimeout": 10000,
+  "assertionTimeout": 10000,
+  "pageLoadTimeout": 15000
+}

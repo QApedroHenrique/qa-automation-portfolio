@@ -1,0 +1,12 @@
+node_modules/
+reports/
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Local secrets — never commit real credentials
+.env
+cypress.env.json
+
+.DS_Store
+*.log

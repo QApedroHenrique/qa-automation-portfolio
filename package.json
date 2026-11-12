@@ -1,0 +1,26 @@
+{
+  "name": "qa-automation-portfolio",
+  "version": "1.0.0",
+  "description": "Test automation portfolio: web UI (Cypress, TestCafe), API (Postman/Newman) and mobile (Maestro).",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "test:e2e": "cypress run --browser chrome",
+    "test:testcafe": "testcafe chrome:headless testcafe/tests",
+    "test:testcafe:headed": "testcafe chrome testcafe/tests",
+    "test:api": "newman run api/restful-booker.postman_collection.json -e api/restful-booker.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export reports/api/index.html",
+    "test:mobile": "maestro test mobile/flows",
+    "test": "npm run test:api && npm run test:testcafe && npm run test:e2e"
+  },
+  "devDependencies": {
+    "cypress": "16.2.1",
+    "cypress-mochawesome-reporter": "5.0.0",
+    "newman": "6.2.3",
+    "newman-reporter-htmlextra": "1.23.1",
+    "testcafe": "3.7.6"
+  }
+}
